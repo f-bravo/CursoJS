@@ -329,7 +329,79 @@ console.log(string3.toUpperCase())
 
 
 //-----------------------------------------------------------------------------
-// 
+// Exercício
 //-----------------------------------------------------------------------------
 
 
+// Vamos colocar texto no body do html.
+/*
+<script>
+        const nome = prompt('Digite seu nome')
+        document.body.innerHTML += `Seu nome é: ${nome}<br/>`;
+        document.body.innerHTML += `Seu nome tem ${nome.length}<br/>`;
+        document.body.innerHTML += `A segunda letra do seu nome é: ${nome.charAt(1)}<br/>`;
+        document.body.innerHTML += `Qual o primeiro índice da letra A no seu nome? ${nome.indexOf('a')}<br/>`;
+        document.body.innerHTML += `Qual o último índice da letra A no seu nome? ${nome.lastIndexOf('a')}<br/>`;
+        document.body.innerHTML += `As últimas 3 letras do seu nome são: ${nome.slice(-3)}<br/>`;
+        document.body.innerHTML += `As palavras do seu nome são: ${nome.split(' ')}<br/>`;
+        document.body.innerHTML += `Seu nome com letras maiúsculas: ${nome.toUpperCase()}<br/>`;
+        document.body.innerHTML += `Seu nome com a letra minúscula: ${nome.toLowerCase()}<br/>`;
+    </script>
+*/
+
+
+//-----------------------------------------------------------------------------
+// Numbers
+//-----------------------------------------------------------------------------
+
+
+// Transformando number em string
+let num9 = 1;
+let num10 = 2.5;
+console.log(num9.toString() + num10); // o num9 ainda continua sendo um number
+console.log(typeof num9); // number
+
+// Para alterar o valor do num9 de number para string:
+num9 = num9.toString();
+console.log(typeof num9); // string
+
+// para ver a representação binária:
+let num11 = 2048;
+console.log(num11.toString(2)); //100000000000
+
+// Arredondamento:
+let num12 = 15.5678986234;
+console.log(num12.toFixed(2)); // 15.57 - não altera o valor original
+
+// verificar se um número é inteiro:
+console.log(Number.isInteger(num12)); // false
+
+// Verificar se um alguam conta deu errado, se retornou NaN
+let temp = num12 * 'hey';
+console.log(Number,isNaN(temp)); // true é um NaN
+
+//
+let num13 = 0.7;
+let num14 = 0.1;
+num13 += num14
+num13 += num14
+
+num13 = Number(num13.toFixed(2))  // retiraa imprecisão
+soma = num13 + num14
+console.log(num13 + num14) // 1
+console.log(Number.isInteger(soma)) // true
+console.log(0.7 + 0.1);  // 0.7999999999999999
+
+// Uma maneira de resolver a imprecisão sem as funções: 
+let num15 = 0.7;
+let num16 = 0.1;
+num15 = ((num15 * 100) + (num16 * 100)) / 100;
+console.log(num15) // 0.8
+
+// Na hora de motrar o número basta fazer isso par atirar a imprecisão:
+num15 = Number(num15.toFixed(2)) // e arredonda p duas casas decimais
+
+
+//-----------------------------------------------------------------------------
+//
+//-----------------------------------------------------------------------------
