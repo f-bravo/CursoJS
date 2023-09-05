@@ -1,3 +1,11 @@
+// Documentação para auxiliar:
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript
+// https://www.w3schools.com/js/
+// https://262.ecma-international.org/14.0/ - formal em inglês
+
+
+// JavaScript básico:
+
 // Console.log - comando para exibir coisas na tela.
 // Log é um método que está dentro do objeto console
 // (;) Ponto e vírgula é opcional em JS.
@@ -191,6 +199,137 @@ const num6 = parseInt('3.5') //converte string para um inteiro (int)
 const num7 = parseFloat('3.5') // converte string para float
 // O mais usado e moderno é Number
 const num8 = Number('5.5')
-console.log(num3 * num8)
+console.log(num3 * num8) // 10 * 5.5 = 55
+
+
+//-----------------------------------------------------------------------------
+// Alert, confirm e prompt (Navegador)
+//-----------------------------------------------------------------------------
+
+
+// Abra o navegador vá em inspecionar elemento e console.
+// Essas funções para ver interação precisa usar o console do navegador.
+
+// Funções do navegador que estão dentro do objeto window
+// Quando uma funçã está dentro de m objeto cham ade método, fora do método é função
+/*
+window.alert('Mensagem teste')
+undefined -> n retorna nada
+
+window.confirm('Deseja pagar msg?')
+true -> retorna valor boolean
+
+window.prompt('Digite seu nome')
+'Felipe Bravo'
+
+const confirma = confirm('Realmente quer apagar?')
+undefined -> agora essa variável está salva com o valordo usuário true ou false
+confirma - false(cliquei no cancelar)
+
+let numero1 = prompt('Digite um numero')
+undefined
+let numero2 = prompt('Digite outro numero')
+undefined
+console.log(numero1) -> 33
+undefined
+console.log(numero2) -> 66
+undefined
+let total = numero1 + numero2
+undefined
+console.log(total) -> 3366 concatenou pois é uma string
+undefined
+
+let numero1 = Number(numero1) 33
+let numero2 = Number(numero2) 66
+let total = numero1 + numero2
+console.log(total) 99
+alert('O resultado foi', total)
+*/
+
+
+//-----------------------------------------------------------------------------
+// Exercício simples - altere o valor das variáveis abaixo
+//-----------------------------------------------------------------------------
+
+//A=B, B=C e C=A
+let varA = 'A'; // B
+let varB = 'B'; // C
+let varC = 'C'; // A
+//Precisa criar uam variável temporária para armazenar o valor que será perdido
+varTemp = varA;
+varA = varB;
+varB = varC;
+varC = varTemp;
+console.log(varA, varB, varC);
+// Sem criar outra variável
+let A = 'A'; // B
+let B = 'B'; // C
+let C = 'C'; // A
+[A, B, C] = [B, C, A]
+console.log(A, B, C);
+
+
+//-----------------------------------------------------------------------------
+// Mais sobre strings
+//-----------------------------------------------------------------------------
+
+let string1 = "Um \"texto\""; // se precisar de aspas dupla use a barra p escape
+console.log(string1);
+let string2 = "Um 'texto'"; // ou use aspas simples dentro da aspas dupla
+console.log(string1);
+// string é indexável, pode se iterar sobre elas.
+// cada caracter tem um índice
+// Para pegar um [índice] da string:
+console.log(string1[1]); // m
+console.log(string1[-1]); // undefined
+// função para pegar elemento de um índice:
+console.log(string1.charAt(6));  // x
+
+//Concatenando texto de 3 formas diferentes:
+console.log(string1.concat(' ', 'concatenado')); // Um "texto" concatenado
+console.log(string1 + '', 'concatenado');
+console.log(`${string1} concatenado`); // mais usada
+
+// para ver o índice de uma string:
+console.log(string1.indexOf('o'));
+console.log(string1.indexOf('x', 3)); // começa do 3. O índice retornado é da string
+console.log(string1.lastIndexOf('x')); // busca de trás p frente e não muda o índice
+console.log(string1.indexOf('x', 3)); // 6
+
+// match:
+console.log(string1.match(/[a-z]/g)); // [ 'm', 't', 'e', 'x', 't', 'o' ] letras minúscula
+console.log(string1.match(/[A-Z]/g)); // [ 'U' ] Letra maiúsculas
+
+// search - encontre o índice da letra x:
+console.log(string1.search(/x/)); // 6
+
+//replace - substitui uma por outra
+console.log(string1.replace('Um', 'HUM')); // HUM "texto"
+console.log(string1.replace(/Um/, 'HUM')); // HUM "texto"
+let string3 = "O rato roeu a roupa do rei de roma";
+console.log(string3.replace(/r/g, 'R')); // g subisti todas e n só a primeira
+
+// lenght - para ver o tamanho
+console.log(string3.length);  // 34
+
+// slice - fatiamento:
+console.log(string3.slice(2,6)); // rato
+console.log(string3.slice(-4)); // roma 
+console.log(string3.slice(30)); // roma
+// substring também faz fatiamento. Mas slice é mais simples.
+console.log(string3.substring(string3.length - 4)); // roma
+
+// dividir a string em espaços.
+console.log(string3.split(' '))
+// ['O', 'rato', 'roeu', 'a', 'roupa', 'do', 'rei', 'de','roma']
+
+//Upper e lower case
+console.log(string3.toLowerCase())
+console.log(string3.toUpperCase())
+
+
+//-----------------------------------------------------------------------------
+// 
+//-----------------------------------------------------------------------------
 
 
