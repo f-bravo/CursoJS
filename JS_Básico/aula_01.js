@@ -383,25 +383,186 @@ console.log(Number,isNaN(temp)); // true é um NaN
 //
 let num13 = 0.7;
 let num14 = 0.1;
-num13 += num14
-num13 += num14
+num13 += num14;
+num13 += num14;
 
-num13 = Number(num13.toFixed(2))  // retiraa imprecisão
-soma = num13 + num14
-console.log(num13 + num14) // 1
-console.log(Number.isInteger(soma)) // true
+num13 = Number(num13.toFixed(2));  // retiraa imprecisão
+soma = num13 + num14;
+console.log(num13 + num14); // 1
+console.log(Number.isInteger(soma)); // true
 console.log(0.7 + 0.1);  // 0.7999999999999999
 
 // Uma maneira de resolver a imprecisão sem as funções: 
 let num15 = 0.7;
 let num16 = 0.1;
 num15 = ((num15 * 100) + (num16 * 100)) / 100;
-console.log(num15) // 0.8
+console.log(num15); // 0.8
 
 // Na hora de motrar o número basta fazer isso par atirar a imprecisão:
 num15 = Number(num15.toFixed(2)) // e arredonda p duas casas decimais
 
 
 //-----------------------------------------------------------------------------
-//
+// Objeto Math
 //-----------------------------------------------------------------------------
+
+let n1 = 9.54789;
+let n2 = Math.floor(n1); // arredonda p baixo
+console.log(n2); // 9
+let n3 = Math.ceil(n1);
+console.log(n3); // arredonda p cima
+let n4 = Math.round(n1); // 10
+console.log(n4); // 10 --> 9.49 arredonda p baixo. 9.50 arredonda p cima
+
+console.log(Math.max(1,3,5,7,9,19,26,88,99)); // 99
+console.log(Math.min(1,3,5,7,9,19,26,88,99)); // 1
+
+console.log(Math.random()); // némero aleatório entre 0 e 0.99999
+// Um número aleatório de range entre 5 e 10:
+const numAleatorio = Math.random() * (10 - 5) + 5;
+console.log(numAleatorio);
+const numAleatorio2 = Math.round(Math.random() * (10 - 5) + 5); 
+console.log(numAleatorio2); // aleatorio arredondado 
+
+console.log(Math.pow(2,10));
+console.log(2 ** 10);  // mesma coisa e bem mais fácil
+
+// Para extrair a raiz quadrada de um número:
+let raiz1 = 9
+let raiz2 = 49
+console.log(raiz1 ** (1/2))
+console.log(raiz1 ** 0.5)  // mais fácil 
+console.log(raiz2 ** 0.5)   
+
+// Em JS dividir por zero não gera erro e sim um outro tipo de dado numérico
+// chamado Infinity. Não gera erro e é avaliado como verdadeiro(true)
+// Quando mais se aproxima do zero absoluto maior é o resultado final. Chega um 
+// ponto que não vai ter mais casas para por um número e vai dizer que o número 
+// é Infinito.
+
+
+//-----------------------------------------------------------------------------
+// Arrays - básico
+//-----------------------------------------------------------------------------
+
+// Array no JS é considerado um objeto
+// Array: o índice de cada elemento é separado pela vírgula
+// para acessar um dos elementos basta colocar o índice
+// [indice inicia no zero]
+// Sempre que adiciona remove um elemento o índice altera. A não ser que seja o 
+// último elemento do array.
+
+const alunos = ['Luiz', 'Maria', 'Juliana'];
+console.log(alunos[2]); // índice[2] é Juliana
+
+// substituindo um valor por outro em um índice específico:
+// alunos[0] = 'Felipe';  // substitui Luiz por Felipe
+// alunos[3] = 'Luiza';  // Como esse índice n existe ele coloca no final do array
+console.log(alunos);
+
+// Para ver o tamanho do array:
+console.log(alunos.length) // 3;
+
+// A melhor maneira para adicionar um elemento no final da fila é: PUSH()
+alunos[alunos.length] = 'Igor';
+alunos.push('Último');
+console.log(alunos); // ['Luiz', 'Maria', 'Juliana', 'Igor', 'Último']
+
+// Para adicionar no início da fila: UNSHIFT
+alunos.unshift('Primeiro');
+console.log(alunos) // ['Primeiro', 'Luiz', 'Maria', 'Juliana', 'Igor', 'Último']
+
+// Para remover o último elemento do array: POP
+alunos.pop();
+console.log(alunos); // [ 'Primeiro', 'Luiz', 'Maria', 'Juliana', 'Igor' ]
+// Da para salvar o que foi removido caso necessite.
+const removidos = alunos.pop();
+console.log(removidos); // Igor
+console.log(alunos); // [ 'Primeiro', 'Luiz', 'Maria', 'Juliana' ]
+
+// Para remover o primeiro elemento do array: SHIFT()
+alunos.shift();
+console.log(alunos); // [ 'Luiz', 'Maria', 'Juliana' ]
+
+// Par apagar um índice específico: fazendo isso um elemento fica vazio.
+// delete alunos[1];
+// console.log(alunos); // ['Luiz', <1 empty item>, 'Juliana']
+
+// No JS existe um valor padrão para coisas que não existem, que não aponte para
+// nenhum local na memória. O valor é chamdo de (undefined)
+// Se quiser acessar um valor que não existe o JS permite
+console.log(alunos[10]); // undefined
+
+// Fatiamento: SLICE(início, até)
+console.log(alunos.slice(0, 2)); // [ 'Luiz', 'Maria' ] o 2 não é inclusivo
+console.log(alunos.slice(0, -1)); // [ 'Luiz', 'Maria' ] elimina o último(1)
+
+// OBS:
+/*
+const com valores mutáveis (como arrays e objetos), a variável continua sendo 
+constante, porém os valores dentro do objeto poderão ser alterados. Isso acontece
+porque quando alteramos um valor interno de um objeto, não ocorre a reatribuição
+da variável com sinal de atribuição = (a variável continua apontando para o mesmo
+local na memória), apenas a alteração de um valor interno do mesmo objeto.
+*/
+
+//-----------------------------------------------------------------------------
+// Funções
+//-----------------------------------------------------------------------------
+
+
+// Toda função por padrão retorna undefined. 
+// Se quiser que a função faça algo e retorne um valor use a palvra return
+// Após palavra return nada mais é executado.
+// Para declarar uma função use a palavra function. É a declarção clássica.
+function saudacao(nome){
+    console.log(`Bom dia ${nome}`);
+}
+saudacao('Luiz'); // Bom dia Luiz
+
+
+function saudacao2(nome){
+    return `Bom dia ${nome}`;
+}
+const variavel1 = saudacao2('Felipe') // salvando o retorno em uma variável
+console.log(variavel1); // Bom dia Felipe
+
+
+function soma2(x, y){
+    const resultado = x + y;  //variável do escopo da função. Só funciona aqui
+    return resultado;
+}
+console.log(soma2(2,3)); // 5
+console.log(soma2(5,5)); // 10
+
+// Valor padrão - sempre que não enviar um parâmetro ele será usado
+function soma3(x=1, y=1){
+    const resultado = x + y;  //variável do escopo da função. Só funciona aqui
+    return resultado;
+}
+console.log(soma3(2)); // 3
+console.log(soma3()); // 2
+console.log(soma3(4, 4)); // 8
+
+
+// Outra maneira de criar função: Função não nomeada:
+const raiz3 = function (n){
+    return n ** 0.5
+}
+console.log(raiz3(81)); // 9
+console.log(raiz3(1024)); // 32
+
+// Outra maneira: (seta) function - veio para facilitar pois é mais simples
+const raiz4 = (n) =>{
+    return n ** 0.5
+}
+console.log(raiz4(25)); // 5
+
+// Veja como declarar uma função simples no estilo arrow:
+const raiz5 = (n) => n ** 0.5;
+
+console.log(raiz5(4)); // 2
+
+
+
+
