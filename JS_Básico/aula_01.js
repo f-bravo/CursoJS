@@ -564,5 +564,142 @@ const raiz5 = (n) => n ** 0.5;
 console.log(raiz5(4)); // 2
 
 
+//-----------------------------------------------------------------------------
+// Objetos
+//-----------------------------------------------------------------------------
+
+// Para criar um objeto usa {}
+const pessoa1 = {
+    nome:'Felipe',
+    sobrenome:'Bravo',
+    idade:'40',
+};
+console.log(pessoa1) //{ nome: 'Felipe', sobrenome: 'Bravo', idade: '40' }
+console.log(pessoa1.nome) // Felipe
+console.log(pessoa1.idade) // 40
+
+// Ao criar uma função as "variáveis" declarradas são chamadas de parâmetros
+// Essa função cria objetos do tipo pessoa. Ela é uma factory function,
+function criaPessoa(nome, sobrenome, idade){
+    return{
+        nome: nome,
+        sobrenome: sobrenome, 
+        idade: idade,    
+    };
+}
+// Argumentos: são os valores passsados para os parâmetros da função.
+const pessoa2 = criaPessoa('Bruno', 'Henrique', 27)
+console.log(pessoa2) // { nome: 'Bruno', sobrenome: 'Henrique', idade: 27 }
+console.log(pessoa2.nome) // Bruno
+
+// Quando so valores tem os mesmos nomes pode fazer como o exemplo de baixo:
+function criaPessoa2(nome, sobrenome, idade){
+    return{
+        nome, sobrenome, idade  
+    };
+}
+const pessoa3 = criaPessoa2('Marco', 'Aurélio', 'unknown')
+console.log(pessoa3)
+
+// Quando uma função está dentro de outra função é chamado de método. 
+
+const pessoa4 = {
+    nome:'Johny',
+    sobrenome:'Bravo',
+    idade: 45,
+
+    fala(){
+        console.log(`A idade atual é: ${this.idade}`);
+    },
+
+    incrementaIdade(){
+        this.idade++;
+    }
+};
+
+pessoa4.fala() // A idade atual é: 45
+pessoa4.incrementaIdade();
+pessoa4.fala() // A idade atual é: 46
 
 
+//-----------------------------------------------------------------------------
+// Valor primitivo e valor de referência
+//-----------------------------------------------------------------------------
+
+
+// Valor Primitivo (imutáveis) -> copiados
+// String, number, boolean, undefined, null (bigint, symbol)
+
+// Quando o dado for primitivo:
+// Se vc disser que uma variável é igual a outra, está fazendo uma copia. Mas só
+// pode ser feito em dado primitivo. 
+let var1 = 'A';
+let var2 = var1; //copia
+console.log(var1, var2); // A A
+a = 'XXX'
+console.log(var1, var2); // A A
+
+//Valor Referência (mutáveis) -> passados por referência
+// Array, objetct, function
+// ao modificar um vc modifica o outro.
+let var3 = [1,2,3];
+let var4 = var3;
+console.log(var3, var4); // [ 1, 2, 3 ] [ 1, 2, 3 ]
+var3.push(4);
+console.log(var3, var4); // [ 1, 2, 3, 4 ] [ 1, 2, 3, 4 ]
+var4.pop();
+console.log(var3, var4); // [ 1, 2, 3 ] [ 1, 2, 3 ]
+
+// Para que os valores passados por referência n sejam alterados:
+let valorA = [3,5,7];
+let valorB = [...valorA];
+let valorC = valorB;
+
+//AO fazer o spread do valorA no valorB, ao add mais um valor, ele não vai p/ valorB
+console.log(valorA, valorB, valorC); // [ 3, 5, 7 ] [ 3, 5, 7 ] [ 3, 5, 7 ]
+valorA.push(9);
+console.log(valorA, valorB, valorC); //[ 3, 5, 7, 9 ] [ 3, 5, 7 ] [ 3, 5, 7 ]
+
+// add 11 no valorB adiciona também em valorC pois foi feito apenas a copia.
+valorB.push(11);
+console.log(valorA, valorB, valorC); //[ 3, 5, 7, 9 ] [ 3, 5, 7, 11 ] [ 3, 5, 7, 11 ]
+
+// A prova da copia está aqui: add 13 em valorC e valorB também foi adicionado.
+valorC.push(13);
+console.log(valorA, valorB, valorC); // [ 3, 5, 7, 9 ] [ 3, 5, 7, 11, 13 ] [ 3, 5, 7, 11, 13 ]
+
+// Com objetos  funciona da mesma maneira.
+const people1 = {
+    nome:'Felipe',
+    sobrenome:'Bravo'
+};
+const people2 = people1
+// Ao alterar a pessoa1 a pessoa2 também é alterada
+people1.nome = 'Luiz'
+console.log(people2) // { nome: 'Luiz', sobrenome: 'Bravo' }
+
+// Se quiser copiar o valor da pessoa1 para pessoa2 sem que apontem para o mesmo
+// local na memória: faça o spread, espalhe o valor de pessoa1 em pessoa2.
+const people3 = {
+    nome:'Felipe',
+    sobrenome:'Bravo'
+};
+const people4 = {...people3}
+// Ao alterar a pessoa3 a pessoa4 não foi alterada
+people3.nome = 'XXXX'
+console.log(people3) // { nome: 'XXXX', sobrenome: 'Bravo' }
+console.log(people4) // { nome: 'Felipe', sobrenome: 'Bravo' }
+// Ao alterar pessoa4 a pessoa3 não é alterada
+people4.nome = 'ZZZZ'
+console.log(people3)  // { nome: 'XXXX', sobrenome: 'Bravo' }
+
+
+//-----------------------------------------------------------------------------
+// Exercício básico 2
+//-----------------------------------------------------------------------------
+
+
+// Exercício nos arquivos exercicio2.js e exercicio2.html
+
+
+// Fim do basicão.
