@@ -699,7 +699,7 @@ console.log(people3)  // { nome: 'XXXX', sobrenome: 'Bravo' }
 //-----------------------------------------------------------------------------
 
 
-// Exercício nos arquivos exercicio2.js e exercicio2.html
+// Exercício está nos arquivos exercicio2.js e exercicio2.html
 
 
 // Fim do basicão.
