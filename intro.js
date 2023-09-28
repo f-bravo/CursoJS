@@ -1,10 +1,10 @@
 /*console.log('Hello world!') */
 
 /*
-# inicie o git no projeto:
+# iniciando o git no projeto pelo terminal:
 # -> git init
 
-# se já criou um usuário global não precisa executar o comando p/ nome e e-mail 
+# Se já tem um usuário global não precisa executar o comando p/ nome e e-mail 
 # ---------------------------------------------------------------------------
 # Criando nome de usuário: git
 -> git config --global user.name 'seu_nome'
@@ -28,7 +28,7 @@
 # Crei o repositório no perfil do github
 Adicionando o repositório remoto: 
 copie a chave https e dê o seguinte comando:
--> git remote add origin https://github.com/f-bravo/CursoJS.git
+-> git remote add origin https://github.com/f-bravo/...
 
 
 Comandos para enviar arquivos para o repositório:
