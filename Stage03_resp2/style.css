@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* deixa a fonte mais bonita */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+:root {
+    font-family: 'Noto Serif';
+    font-size: 62.5%;
+}
+
+body {
+    color: #A54328;
+    font-size: 1.6rem;
+}
+
+main {
+    max-width: 32rem;
+
+    margin-inline: auto; /* centralizou a caixa do layout */
+
+    padding: 5.6rem 4rem;
+
+    /* Para o conteúdo será 32rem. O que é paddin será paddin p fora e não engloba o conteúdo
+    O padding estava fazendo esses 320 diminuirem espremendo a tela em + 4rem dos 320
+    ou seja, os 320 na verdade eram 280.*/
+    box-sizing: content-box;
+
+    /* para trabalhar com uma caixa dentro de outra caixa */
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+img {
+    /* a imagem transborda com rolagem em dispositivo pequeno. Assim fica junto
+    ao outros seguindo a proporcionalidade */
+    width: 100%;
+    /* coloca espaços na parte de ciam e em baixo */
+    margin-block: 3.2rem;
+}
+
+button {
+    font-family: 'Source Serif 4';
+    background-color: #A54328;
+    color: white;
+    border: 0;
+    padding: .8rem 1.8rem;
+    border-radius: 0.6rem;
+    margin-top: 3.2rem;
+}
+
+h1, h2 {
+  /* clamp: (mínimo, ideal, mais alto) valores*/
+  font-size: clamp(2.8rem, 2vw + 1rem, 4rem);
+  line-height: clamp(3.6rem, 2vw + 1rem, 5rem);
+}
+
+h2 {
+    margin-bottom: 3.2rem;
+}
+
+p, li, strong {
+  font-size: clamp(1.4rem, 1vw + 0.4rem, 2rem);
+  line-height: clamp(1.8rem, 1vw + 1rem, 2.5rem);
+}
+
+ul, ol {
+    /* colocando paddin somente a esquerda */
+    padding-left: 2.4rem;
+}
+
+ul {
+    margin-bottom: 2.4rem;
+}
+
+@media (min-width: 1120px) {
+    main {
+        flex-direction: row;
+        max-width: fit-content; /* Largura máxima: encaixe do tamanho do conteúdo */
+        gap: 16rem;
+        padding: 9rem 6rem;
+    }
+  /* img está 100% da caixa. Para arrumar e a img ficar proporcional: flex: 1 
+     Mas dessa forma ele pega tudo. Se as divs tiverem medidas diferentes, faça individualmente
+    
+    main > div {
+        flex: 1;  divide cada div por igual, metadae para cada uma. São 2 div 
+        max-width: 50rem; largura máximapara as divs dentro do main 
+    }*/
+
+    /* fazendo a proporção das divs individual: */
+    .recipe {
+        max-width: 43.5rem;
+    }
+    .ingredients {
+        max-width: 52.5rem;
+    }
+    
+    h1, h2 {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+
+    p, li, strong {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    button {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
+}
