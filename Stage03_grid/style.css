@@ -1,0 +1,76 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    height: 100vh;
+
+    border: 2px solid green;
+}
+
+#app > * {
+    border: 1px solid red;
+}
+
+/* pegando a primeira div 
+#app header {
+    grid-column: 1/2; /* por está no primeiro n faz diferença 
+    grid-row: 1/4;
+}
+#app main {
+    grid-column: 2/4;
+    grid-row: 1/3;
+}
+#app aside {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+#app footer {
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+/* -------------------------------------------------------------------*/
+/* Grid templates areas: */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+#app {
+    display: grid;
+    grid-template-areas: 
+    "A B B"
+    "A B B"
+    "A C D";
+
+    gap: 20px;
+
+    height: 100vh;
+
+    padding: 30px;
+
+    border: 2px solid green;
+
+    box-sizing: border-box
+}
+#app > * {
+    border: 1px solid red;
+}
+
+#app header {
+    grid-area: A;
+}
+#app main {
+    grid-area: B;
+}
+
+
+
+
