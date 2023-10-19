@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%; /* 10px */
+    --color-base-white: #ffffff;
+    --color-base-black-400: #121214;
+    --color-base-black-700: #202024;
+    --color-base-background: #065E7C;
+    font-family: Mulish;
+}
+
+header nav{
+    background-color: var(--color-base-background);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem ;
+    gap: 1;
+    margin-bottom: 4rem;
+}
+
+header form {
+    flex: 1; /* preenche todo espaço disponível para ele*/
+    overflow: hidden; /* n está escondendo */     
+}
+
+label {
+    overflow: hidden; /* ?? */
+}
+
+/* n esconde o texto do form */
+.input-wrapper {
+    overflow: hidden;
+}
+
+.logo {
+     /*  ??  */
+}
+
+button {
+    background-color: var(--color-base-background);
+    border-radius: 50%;
+}
+
+button img {
+    
+}
+
+/* provisório a fonte aqui*/
+body {
+    font-family: Mulish;
+}
+
+.all {
+    max-width: fit-content; /* largura máx ajuste ao conteúdo*/
+    margin-inline: auto; /* alinha tudo ao meio */
+    box-sizing: content-box; /* para o conteúdo somar a largura total e se alinhar */
+}
+
+main {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;   
+}
+
+.container h1 p{
+    
+}
+
+.container h1 {
+    color: var(--color-base-black-700);
+    font-size: 2.4rem;
+    padding: 3.1rem 6.6rem 0,8rem 2.2rem;
+    line-height: 3.8rem;
+    padding: 3rem 2rem 3rem 2rem;
+   
+}
+
+.container p {
+    color: var(--color-base-black-400);
+    font-size: 16px;
+    
+    line-height: 25.60px;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem 3rem 2rem;
+
+}
+
+
+
+.capa {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+/* Artigos: foto a esquerda, <h1> e <p> a direta */
+.item {
+    font-size: 14px;
+    line-height: 22.40px;
+    display: flex  ;
+    align-items: center;
+    margin: 0 1.6rem 2rem ; 
+}
+
+.item img {
+    margin-right: 1rem;
+}
+
+.gallery {
+    
+}
+
+.gallery h1 {
+    margin-left: 1.5rem; /* alinhei o título  */
+    color: var(--color-base-black-700);
+    font-size: 24px;
+    line-height: 38.40px;
+}
+
+.gallery h2 {
+    color: var(--color-base-black-700);
+    font-size: 18px;
+    line-height: 28.80px;
+}
+
+.gallery p {
+    color: var(--color-base-black-400);
+    font-size: 14px;
+    line-height: 22.40px;
+}
+
+/* não quer pega */
+footer {
+    color: #fff;
+    text-align: center;
+    background-color: var(--color-base-background);
+    padding: 16px;
+    
+}
+
+
+/* Ajustando para desktop - ponto de quebra acima de 768px*/
+/* as divs são container e artigos que farão a quebra p responsividade*/
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        max-width: fit-content; /* encaixe no conteúdo */
+        gap: 3.4rem; /* separação entre as divs */
+        
+    }
+    /*é um calculo único para cada div. Se cada uma tiver um tamanho faça separado
+    main > div {
+        flex: 1;  50% do tamanho da largura para cada div
+        max-width: 720px;  largura máxima de cada div. x2 =1440 = ao figma do projeto
+    } */
+    /* Fazendo o calculo indivual de cada div: */
+    .container {
+        max-width: 800px;
+    }
+    .gallery {
+        max-width: 409px; 
+    }
+}
+
+/*
+@media (min-width: 770px) {
+    main {
+        flex-direction: row;
+        max-width: fit-content;  largura máxima encaixe no conteúdo 
+        gap: 10rem
+    }
+    .container {
+        max-width: 800px; n funciona
+    }
+    .artigos {
+        max-width: 385px;
+    }
+}
+*/
+
+
+
+
+
