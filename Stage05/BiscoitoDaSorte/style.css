@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(45deg , #190361 0%, #BB00FF 100%);
+    font-size: 1.6rem; /* font-size:: 62.5% */
+    display: grid;
+    place-items: center; /* centraliza o único filho(main) no meio do body */
+    height: 100vh;   
+}
+
+.hide {
+    display: none;
+}
+
+main {
+    background: #ffffff;
+    /*box-shadow: x, y, blur*/
+    box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.8);
+    border-radius: .6rem;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.4rem;
+    
+}
+
+h1 p {
+    color: #34355B;
+}
+p button {
+    font-family: "DM Sans", sans-serif;
+    
+}
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+
+#btnCookie {
+    box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.248);
+    border: none;
+    padding: 1.7rem;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Enquanto n faço a animação do biscoito tremendo */
+#btnCookie:hover {
+    background-color: #ffffffa2;
+
+}
+
+#btnReset {
+    width: 17.4rem;
+    height: 5.2rem;
+    background-color: #FF9500;
+    color: #FFFFFF;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background .3s;
+}
+#btnReset:hover {
+    background-color: #ffb44a;
+
+}
+
+
+
+.class_que_vai_receber_resposta {
+    font-family: "Dancing Script", sans-serif;
+}
+
+/* as divs terão tamanhos diferentes - faça individualmente*/
+.screen1 {
+    padding: 4.8rem 6.4rem ;
+    width: min(42.8rem, 90%);
+    /*margin: 0 auto; -> será usado o displaygrid no body -> único filho(main)*/
+    
+    
+}
+
+
+/* screen2 --------------------------------------------------------------*/
+.screen2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4.8rem 6.4rem ;
+    width: min(42.8rem, 90%);
+    
+}
+
+.screen2 h1 {
+    padding-bottom:  1.7rem;
+}
+
+.screen2 img {
+    padding: 1.7rem 0.35rem;
+}
+
+.screen2 p {
+    font-family: "Dancing Script" ;
+}
+/* div 2
+<div class="screen2 hide">
+            <h2>Aqui está sua sorte de hoje:</h2>
+            <img src="./assets/_Group_.svg" alt="">
+            
+            <button id="btnReset">Abrir outro biscoito</button>
+        </div>
+*/
